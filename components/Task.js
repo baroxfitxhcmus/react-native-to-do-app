@@ -12,11 +12,11 @@ const getStyle = () => data.status ? styles.content : styles.contentFalse;
 
     return (
         <View style={styles.container}>
-            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 4, justifyContent:'flex-start' }}>
                 <Text style={styles.index}>{item.id}</Text>
                 <Text style={getStyle()}>{item.content}</Text>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'row', flex: 1, justifyContent: 'flex-end'}}>
                 <FontAwesome 
                     name="check-square" 
                     style={styles.check} 

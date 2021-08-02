@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 
 
 export default function InputToDo(props) {
@@ -32,10 +32,24 @@ return(
                 />
             <TouchableOpacity activeOpacity={0.5} 
                 onPress={() => {
-                    if(text != ''){
-                        props.getData(getItem(text));
-                        setText('');
+                    if(text.length > 60){
+                        Alert.alert(
+                            'Hello',
+                            'Task name over length of text allowed!',
+                            [
+                              {
+                                text: 'Ok'
+                              },
+                            ],
+                            {cancelable: false},
+                          )
+                    } else {
+                        if(text != ''){
+                            props.getData(getItem(text));
+                            setText('');
+                        }
                     }
+                    
                     
                 }}
                 style={{justifyContent: 'center', alignItems: 'center'}}
